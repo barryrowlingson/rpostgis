@@ -19,6 +19,8 @@ Depends:
     RPostgreSQL,
     DBI (>= 0.5)
 Imports:
+    terra,
+    sf,
     methods,
     raster,
     rgeos,
