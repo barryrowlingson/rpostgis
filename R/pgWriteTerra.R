@@ -129,7 +129,7 @@ pgWriteTerra <- function(conn, name, raster, bit.depth = NULL,
     bnds<-dbQuoteString(conn, paste0("{{",paste(names(r1),collapse = "},{"),"}}"))
     
     srid <- 0
-    try(srid <- suppressMessages(pgSRID(conn, terra::crs(r1), create.srid = TRUE)))
+    try(srid <- suppressMessages(pgSRID.SpatRaster(conn, terra::crs(r1,proj=TRUE), create.srid = TRUE)))
     
     # loop over bands
     for (b in 1:length(names(r1))) {
